@@ -2,7 +2,7 @@
 # Author: Pablo
 # This makefile helps with packaging, installing and testing the theme
 
-.PHONY: all package install uninstall clean
+.PHONY: all package install uninstall clean publish
 
 # Extension name from package.json
 EXTENSION_NAME := hc-monokai-p404
@@ -42,6 +42,12 @@ clean:
 test: install reload
 	@echo "Theme installed and VS Code reloaded"
 
+# Publish to VS Code Marketplace
+publish: package
+	@echo "Publishing extension to VS Code Marketplace..."
+	@echo "Make sure you have logged in with 'npx @vscode/vsce login $(PUBLISHER)'"
+	npx @vscode/vsce publish
+
 help:
 	@echo "Available commands:"
 	@echo "  make package    - Package the extension into a vsix file"
@@ -50,3 +56,4 @@ help:
 	@echo "  make reload     - Restart VS Code (macOS only)"
 	@echo "  make clean      - Clean up build artifacts"
 	@echo "  make test       - Install and reload VS Code"
+	@echo "  make publish    - Publish to VS Code Marketplace"
