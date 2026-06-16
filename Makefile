@@ -7,7 +7,7 @@
 # Extension name from package.json
 EXTENSION_NAME := hc-monokai-p404
 PUBLISHER := p404
-VSIX_FILE := $(EXTENSION_NAME)-0.0.1.vsix
+VSIX_FILE := $(EXTENSION_NAME)-0.0.2.vsix
 
 all: package install
 
